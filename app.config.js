@@ -1,3 +1,5 @@
+// @unocss-include
+
 export default defineAppConfig({
 	ui: {
 		button: {
@@ -24,6 +26,41 @@ export default defineAppConfig({
 				iconOn: null,
 				iconOff: null,
 			},
+		},
+		input: {
+			wrapper: 'relative',
+			base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
+			placeholder: 'placeholder:color-neutral-400',
+			rounded: 'rounded-md',
+			variant: {
+				solid: 'bg-gray-100  disabled:bg-gray-400 dark:disabled:bg-neutral-600 dark:bg-neutral-800',
+				outline: 'bg-transparent border disabled:bg-gray-400 dark:border-gray-100 dark:disabled:bg-neutral-600',
+			},
+			size: {
+				'2xs': 'text-xs',
+				xs: 'text-xs',
+				sm: 'text-sm',
+				md: 'text-sm',
+				lg: 'text-base',
+				xl: 'text-base',
+			},
+			gap: {
+				'2xs': 'gap-x-4',
+				xs: 'gap-x-6',
+				sm: 'gap-x-8',
+				md: 'gap-x-8',
+				lg: 'gap-x-8',
+				xl: 'gap-x-8',
+			},
+			padding: {
+				'2xs': 'px-8 py-4',
+				xs: 'px-10 py-6',
+				sm: 'px-12 py-6',
+				md: 'px-12 py-8',
+				lg: 'px-12 py-8',
+				xl: 'px-16 py-12',
+			},
+			custom: '',
 		},
 	},
 })

@@ -11,62 +11,24 @@
 		<card-component class="m-y-32">
 			<template #header>
 				<h1 class="text-2xl">Tamanho</h1>
-				<p class="m-y-12">Use o prop <code>textSize</code> para alterar o tamanho do texto do input.</p>
+				<p class="m-y-12">Use o prop <code>size</code> para alterar o tamanho do texto do input.</p>
 			</template>
 			<div class="flex flex-col gap-16">
 				<div class="flex items-center gap-16">
-					<input-component
-						name="name"
-						placeholder="digite seu nome aqui..."
-						appearance="none"
-						text-size="xs"
-					/>
-					<code>text-size="xs"</code>
+					<input-component name="name" placeholder="digite seu nome aqui..." appearance="none" size="xs" />
+					<code>size="xs"</code>
 				</div>
 				<div class="flex items-center gap-16">
-					<input-component
-						name="name"
-						placeholder="digite seu nome aqui..."
-						appearance="none"
-						text-size="md"
-					/>
-					<code>text-size="md"</code>
+					<input-component name="name" placeholder="digite seu nome aqui..." appearance="none" size="md" />
+					<code>size="md"</code>
 				</div>
 				<div class="flex items-center gap-16">
-					<input-component
-						name="name"
-						placeholder="digite seu nome aqui..."
-						appearance="none"
-						text-size="lg"
-					/>
-					<code>text-size="lg"</code>
+					<input-component name="name" placeholder="digite seu nome aqui..." appearance="none" size="lg" />
+					<code>size="lg"</code>
 				</div>
 				<div class="flex items-center gap-16">
-					<input-component
-						name="name"
-						placeholder="digite seu nome aqui..."
-						appearance="none"
-						text-size="xl"
-					/>
-					<code>text-size="xl"</code>
-				</div>
-				<div class="flex items-center gap-16">
-					<input-component
-						name="name"
-						placeholder="digite seu nome aqui..."
-						appearance="none"
-						text-size="2xl"
-					/>
-					<code>text-size="2xl"</code>
-				</div>
-				<div class="flex items-center gap-16">
-					<input-component
-						name="name"
-						placeholder="digite seu nome aqui..."
-						appearance="none"
-						text-size="3xl"
-					/>
-					<code>text-size="3xl"</code>
+					<input-component name="name" placeholder="digite seu nome aqui..." appearance="none" size="xl" />
+					<code>size="xl"</code>
 				</div>
 			</div>
 		</card-component>
