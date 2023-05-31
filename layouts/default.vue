@@ -46,7 +46,7 @@
 
 <template>
 	<header class="border-b border-zinc-900">
-		<div class="m-y-32 container flex items-center justify-between">
+		<div class="m-y-2 container flex items-center justify-between">
 			<div>
 				<h1>VS</h1>
 			</div>
@@ -66,15 +66,15 @@
 			</div>
 		</div>
 	</header>
-	<div class="m-y-32 container">
-		<div class="grid grid-cols-12 gap-16">
+	<div class="m-y-8 container">
+		<div class="grid grid-cols-12 gap-4">
 			<aside class="col-start-1 col-end-4">
 				<nuxt-link
 					v-for="(item, index) of menuItems"
 					:key="item.title"
 					:to="item.link"
 					:class="[
-						'm-b-16 b-rd-4 bg-global dark:bg-global-dark-100 hover:bg-primary-500 block cursor-pointer p-16 text-lg',
+						'm-b-4 bg-global dark:bg-global-dark-100 hover:bg-primary-500 block cursor-pointer rounded-sm p-4 text-lg',
 						{
 							'bg-primary-600': index === currentItem,
 						},

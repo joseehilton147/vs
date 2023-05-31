@@ -1,19 +1,10 @@
 import {defineConfig, presetUno} from 'unocss'
-import presetRemToPx from '@unocss/preset-rem-to-px'
 
 export default defineConfig({
-	presets: [presetUno(), presetRemToPx({baseFontSize: 4})],
-	shortcuts: [[/^wh-(.+)$/, ([, d]) => `w-${d}px h-${d}px`]],
+	presets: [presetUno()],
 	theme: {
 		container: {
 			center: true,
-			padding: {
-				DEFAULT: '2rem',
-				sm: '2rem',
-				lg: '4rem',
-				xl: '5rem',
-				'2xl': '6rem',
-			},
 		},
 		breakpoints: {
 			xs: '320px',
@@ -59,32 +50,5 @@ export default defineConfig({
 				950: '#4e2b7f', // bg-secondary-950
 			},
 		},
-	},
-	postprocess: util => {
-		if (util.selector && typeof util.selector === 'string') {
-			const textSizes = [
-				'text-xs',
-				'text-sm',
-				'text-base',
-				'text-lg',
-				'text-xl',
-				'text-2xl',
-				'text-3xl',
-				'text-4xl',
-				'text-5xl',
-				'text-6xl',
-				'text-7xl',
-				'text-8xl',
-				'text-9xl',
-			]
-
-			if (textSizes.some(size => util.selector.includes(size))) {
-				util.entries.forEach(i => {
-					const value = i[1] && i[1].toString()
-
-					if (value) i[1] = `${+value.slice(0, -2) * 4}px`
-				})
-			}
-		}
 	},
 })

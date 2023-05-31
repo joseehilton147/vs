@@ -49,7 +49,7 @@
 		},
 		iconSize: {
 			type: String,
-			default: 'wh-20',
+			default: 'w-5 h-5',
 		},
 		loading: {
 			type: Boolean,
@@ -58,7 +58,7 @@
 		size: {
 			type: String,
 			default: 'md',
-			validator: value => ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].includes(value),
+			validator: value => ['xs', 'sm', 'md', 'lg', 'xl'].includes(value),
 		},
 		appearance: {
 			type: String,
@@ -67,7 +67,8 @@
 		},
 		radius: {
 			type: String,
-			default: '',
+			default: 'sm',
+			validator: value => ['none', 'sm', 'md', 'lg', 'xl', 'full'].includes(value),
 		},
 		variant: {
 			type: String,
@@ -89,39 +90,19 @@
 	const input = ref(null)
 
 	const inputClass = computed(() => {
-		const variant = props.ui.variant[props.variant]
-
-		let icon = 'p-8'
+		let icon = ''
 
 		if (props.icon || props.loading) {
 			if (props.iconPosition === 'left') {
-				icon = `p-l-32 p-r-8 p-l-8 p-y-8`
+				icon = `p-l-8 p-r-2`
 			} else {
-				icon = `p-r-32 p-l-8 p-r-8 p-y-8`
+				icon = `p-r-8 p-l-2`
 			}
 		}
 
-		const size = props.ui.size[props.size]
-
-		const radius = props.radius ? props.radius : props.ui.rounded
-
-		// let padding = props.ui.padding[props.size]
-
-		// if (props.padded) {
-		// 	padding = ''
-
-		// 	if (props.icon || props.loading) {
-		// 		if (props.iconPosition === 'left') {
-		// 			padding = `p-l-32`
-		// 		} else {
-		// 			padding = `p-r-32`
-		// 		}
-		// 	}
-		// }
-
-		// const padding = props.padded ? props.ui.padding[props.size] : ''
-
-		return `${props.ui.base} ${variant} ${size} ${radius} ${padding} ${icon} ${props.ui.custom}`
+		return `${props.ui.base} ${props.ui.variant[props.variant]} ${props.ui.size[props.size]} ${
+			props.ui.radius[props.radius]
+		} ${icon} ${props.padded ? props.ui.padding[props.size] : ''} ${props.ui.custom}`
 	})
 
 	const displayIcon = computed(() => {
@@ -149,7 +130,7 @@
 			:disabled="disabled || loading"
 			:readonly="readonly"
 			:autocomplete="autocomplete"
-			:class="inputClass"
+			:class="[inputClass]"
 			@input="onInput"
 			@focus="$emit('focus', $event)"
 			@blur="$emit('blur', $event)"
@@ -157,13 +138,13 @@
 		<Icon
 			v-if="displayIcon.left"
 			:name="loading ? loadingIcon : icon"
-			:class="['transform-translate-y--1/2 pointer-events-none absolute left-8 top-1/2', iconSize]"
+			:class="[props.ui.icon.base, 'left-2', iconSize]"
 			aria-hidden="true"
 		/>
 		<Icon
 			v-if="displayIcon.right"
 			:name="loading ? loadingIcon : icon"
-			:class="['transform-translate-y--1/2 pointer-events-none absolute right-8 top-1/2', iconSize]"
+			:class="[props.ui.icon.base, 'right-2', iconSize]"
 			aria-hidden="true"
 		/>
 	</div>
