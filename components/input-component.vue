@@ -47,10 +47,6 @@
 			default: 'left',
 			validator: value => ['left', 'right'].includes(value),
 		},
-		iconSize: {
-			type: String,
-			default: 'w-5 h-5',
-		},
 		loading: {
 			type: Boolean,
 			default: false,
@@ -79,11 +75,9 @@
 			type: Boolean,
 			default: true,
 		},
-		ui: {
-			type: Object,
-			default: () => useAppConfig().ui.input,
-		},
 	})
+
+	const ui = useAppConfig().ui.input
 
 	const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
@@ -100,9 +94,11 @@
 			}
 		}
 
-		return `${props.ui.base} ${props.ui.variant[props.variant]} ${props.ui.size[props.size]} ${
-			props.ui.radius[props.radius]
-		} ${icon} ${props.padded ? props.ui.padding[props.size] : ''} ${props.ui.custom}`
+		const padding = props.padded ? ui.padding[props.size] : ''
+
+		return `${ui.base} ${ui.variant[props.variant]} ${ui.size[props.size]} ${
+			ui.radius[props.radius]
+		} ${icon} ${padding} ${ui.custom}`
 	})
 
 	const displayIcon = computed(() => {
@@ -118,7 +114,7 @@
 </script>
 
 <template>
-	<div :class="props.ui.wrapper">
+	<div :class="ui.wrapper">
 		<input
 			:id="name"
 			ref="input"
@@ -138,13 +134,13 @@
 		<Icon
 			v-if="displayIcon.left"
 			:name="loading ? loadingIcon : icon"
-			:class="[props.ui.icon.base, 'left-2', iconSize]"
+			:class="[ui.icon.base, 'left-2', ui.icon.size[props.size]]"
 			aria-hidden="true"
 		/>
 		<Icon
 			v-if="displayIcon.right"
 			:name="loading ? loadingIcon : icon"
-			:class="[props.ui.icon.base, 'right-2', iconSize]"
+			:class="[ui.icon.base, 'right-2', ui.icon.size[props.size]]"
 			aria-hidden="true"
 		/>
 	</div>
