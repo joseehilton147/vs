@@ -1,5 +1,9 @@
 <script setup>
+	const colorMode = useColorMode()
+
 	const currentItem = ref(0)
+	const isDarkMode = ref(false)
+
 	const menuItems = reactive([
 		{
 			title: 'Introdução',
@@ -33,30 +37,43 @@
 			title: 'Select',
 			link: '/docs/select',
 		},
+		{
+			title: 'Switch',
+			link: '/docs/switch',
+		},
 	])
 
 	function setCurrentItem(index) {
 		currentItem.value = index
 	}
 
-	// const colorMode = useColorMode()
+	watch(isDarkMode, value => {
+		if (value) {
+			colorMode.preference = 'dark'
+		} else {
+			colorMode.preference = 'light'
+		}
+	})
 
-	// const selectedMode = ref(null)
+	onMounted(() => {
+		if (colorMode.preference === 'dark') {
+			isDarkMode.value = true
+		}
+	})
 </script>
 
 <template>
-	<header class="border-b border-zinc-900">
+	<header class="border-b dark:border-zinc-900">
 		<div class="m-y-2 container flex items-center justify-between">
 			<div>
-				<h1>VS</h1>
+				<h1 class="text-xl">VS</h1>
 			</div>
 			<div class="flex items-center justify-center">
-				<!-- <switch-component v-model="selectedMode" name="color-mode" /> -->
-				<!-- <forms-select-component
-					v-model="colorMode.preference"
-					name="color-mode"
-					:options="['system', 'light', 'dark']"
-				/> -->
+				<switch-component
+					v-model="isDarkMode"
+					on-icon="material-symbols:dark-mode-outline"
+					off-icon="material-symbols:light-mode-outline"
+				/>
 				<button-component
 					to="https://github.com/joseehilton147/nuxt3-starter-template"
 					target="_blank"

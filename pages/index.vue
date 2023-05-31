@@ -5,7 +5,7 @@
 </script>
 
 <template>
-	<div class="bg-global-dark-100 b-rd-4 p-16">
+	<div class="dark:bg-global-dark-100 rounded-md border p-4 dark:border-none">
 		<h1>Ainda será documentado aqui</h1>
 	</div>
 </template>

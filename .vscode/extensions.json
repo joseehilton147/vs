@@ -1,3 +1,10 @@
 {
-	"recommendations": ["antfu.unocss", "dbaeumer.vscode-eslint", "Vue.volar", "usernamehw.errorlens", "voorjaar.windicss-intellisense", "wix.vscode-import-cost", "esbenp.prettier-vscode"]
+	"recommendations": [
+		"antfu.unocss",
+		"dbaeumer.vscode-eslint",
+		"Vue.volar",
+		"voorjaar.windicss-intellisense",
+		"wix.vscode-import-cost",
+		"esbenp.prettier-vscode"
+	]
 }

@@ -23,16 +23,16 @@ export default defineAppConfig({
 				off: 'h-3 w-3 text-gray-400 dark:text-gray-500',
 			},
 			default: {
-				iconOn: null,
-				iconOff: null,
+				onIcon: null,
+				offIcon: null,
 			},
 		},
 		input: {
 			wrapper: 'relative',
-			base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0',
-			placeholder: 'placeholder:color-neutral-400',
+			base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none bg-transparent',
+			placeholder: 'placeholder:color-neutral-500',
 			variant: {
-				solid: 'bg-gray-100  disabled:bg-gray-400 dark:disabled:bg-neutral-600 dark:bg-neutral-800',
+				solid: 'border border-gray-300  disabled:bg-gray-200 dark:border-neutral-800 dark:disabled:bg-neutral-800/80',
 				outline: 'bg-transparent border disabled:bg-gray-400 dark:border-gray-100 dark:disabled:bg-neutral-600',
 			},
 			radius: {
