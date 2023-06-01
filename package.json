@@ -4,7 +4,7 @@
 	"dependencies": {
 		"@commitlint/cli": "^17.6.5",
 		"@commitlint/config-conventional": "^17.6.5",
-		"@headlessui/vue": "^1.7.13",
+		"@headlessui/vue": "^1.7.14",
 		"@pinia/nuxt": "^0.4.11",
 		"axios": "^1.4.0",
 		"maska": "^2.1.9",
@@ -16,9 +16,9 @@
 		"@nuxtjs/color-mode": "^3.2.0",
 		"@nuxtjs/eslint-config-typescript": "^12.0.0",
 		"@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-		"@unocss/eslint-config": "^0.52.5",
-		"@unocss/nuxt": "^0.52.5",
-		"@unocss/preset-rem-to-px": "^0.52.5",
+		"@unocss/eslint-config": "^0.52.7",
+		"@unocss/nuxt": "^0.52.7",
+		"@unocss/preset-rem-to-px": "^0.52.7",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.41.0",
@@ -30,7 +30,7 @@
 		"nuxt-icon": "^0.4.1",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.3.0",
-		"unocss": "^0.52.5"
+		"unocss": "^0.52.7"
 	},
 	"overrides": {
 		"vue": "latest"
