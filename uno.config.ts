@@ -22,18 +22,18 @@ export default defineConfig({
 				},
 			},
 			primary: {
-				DEFAULT: '#32585a', // bg-primary
-				50: '#99acad', // bg-primary-50
-				100: '#849b9c', // bg-primary-100
-				200: '#708a8c', // bg-primary-200
-				300: '#5b797b', // bg-primary-300
-				400: '#47696b', // bg-primary-400
-				500: '#32585a', // bg-primary-500
-				600: '#2d4f51', // bg-primary-600
-				700: '#284648', // bg-primary-700
-				800: '#233e3f', // bg-primary-800
-				900: '#1e3536', // bg-primary-900
-				950: '#192c2d', // bg-primary-950
+				DEFAULT: '#8e7cc3', // bg-primary
+				50: '#c7bee1', // bg-primary-50
+				100: '#bbb0db', // bg-primary-100
+				200: '#b0a3d5', // bg-primary-200
+				300: '#a596cf', // bg-primary-300
+				400: '#9989c9', // bg-primary-400
+				500: '#8e7cc3', // bg-primary-500
+				600: '#8070b0', // bg-primary-600
+				700: '#72639c', // bg-primary-700
+				800: '#635789', // bg-primary-800
+				900: '#554a75', // bg-primary-900
+				950: '#473e62', // bg-primary-950
 			},
 			secondary: {
 				DEFAULT: '#9b55fd', // bg-secondary
