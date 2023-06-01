@@ -3,7 +3,7 @@
 </script>
 
 <template>
-	<div class="bg-global-dark-100 b-rd-4 p-16">
+	<div class="rounded-md border p-4 dark:border-none dark:bg-neutral-900">
 		<header v-if="slots?.header">
 			<slot name="header" />
 		</header>

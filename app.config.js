@@ -1,3 +1,5 @@
+// @unocss-include
+
 export default defineAppConfig({
 	ui: {
 		button: {
@@ -21,9 +23,58 @@ export default defineAppConfig({
 				off: 'h-3 w-3 text-gray-400 dark:text-gray-500',
 			},
 			default: {
-				iconOn: null,
-				iconOff: null,
+				onIcon: null,
+				offIcon: null,
 			},
+		},
+		input: {
+			wrapper: 'relative',
+			base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none bg-transparent',
+			placeholder: 'placeholder:color-neutral-500',
+			variant: {
+				solid: 'border border-gray-300  disabled:bg-gray-200 dark:border-neutral-800 dark:disabled:bg-neutral-800/80',
+				outline: 'bg-transparent border disabled:bg-gray-400 dark:border-gray-100 dark:disabled:bg-neutral-600',
+			},
+			radius: {
+				none: 'rounded-none',
+				sm: 'rounded-sm',
+				md: 'rounded-md',
+				lg: 'rounded-lg',
+				xl: 'rounded-xl',
+				full: 'rounded-full',
+			},
+			size: {
+				xs: 'text-xs',
+				sm: 'text-sm',
+				md: 'text-base',
+				lg: 'text-lg',
+				xl: 'text-xl',
+			},
+			gap: {
+				xs: 'gap-x-1',
+				sm: 'gap-x-1.5',
+				md: 'gap-x-2',
+				lg: 'gap-x-2.5',
+				xl: 'gap-x-3',
+			},
+			padding: {
+				xs: 'p-x-2 p-y-1',
+				sm: 'p-x-2.5 p-y-1.5',
+				md: 'p-x-3 p-y-2',
+				lg: 'p-x-3.5 p-y-2.5',
+				xl: 'p-x-4 p-y-3',
+			},
+			icon: {
+				base: 'transform-translate-y--1/2 pointer-events-none absolute top-1/2',
+				size: {
+					xs: 'h-3.5 w-3.5',
+					sm: 'h-4 w-4',
+					md: 'h-5 w-5',
+					lg: 'h-6 w-6',
+					xl: 'h-7 w-7',
+				},
+			},
+			custom: '',
 		},
 	},
 })

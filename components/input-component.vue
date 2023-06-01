@@ -7,6 +7,7 @@
 		type: {
 			type: String,
 			default: 'text',
+			validation: value => ['text', 'number', 'email', 'password', 'url'].includes(value),
 		},
 		name: {
 			type: String,
@@ -28,17 +29,10 @@
 			type: Boolean,
 			default: false,
 		},
-		autofocus: {
-			type: Boolean,
-			default: false,
-		},
 		autocomplete: {
 			type: String,
-			default: null,
-		},
-		spellcheck: {
-			type: Boolean,
-			default: null,
+			default: 'off',
+			validation: value => ['off', 'on'].includes(value),
 		},
 		icon: {
 			type: String,
@@ -53,18 +47,14 @@
 			default: 'left',
 			validator: value => ['left', 'right'].includes(value),
 		},
-		iconSize: {
-			type: String,
-			default: 'wh-20',
-		},
 		loading: {
 			type: Boolean,
 			default: false,
 		},
-		textSize: {
+		size: {
 			type: String,
 			default: 'md',
-			validator: value => ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].includes(value),
+			validator: value => ['xs', 'sm', 'md', 'lg', 'xl'].includes(value),
 		},
 		appearance: {
 			type: String,
@@ -73,64 +63,43 @@
 		},
 		radius: {
 			type: String,
-			default: 'xs',
-			validator: value => ['disabled', 'xs', 'sm', 'md', 'lg', 'xl', 'full'].includes(value),
+			default: 'sm',
+			validator: value => ['none', 'sm', 'md', 'lg', 'xl', 'full'].includes(value),
+		},
+		variant: {
+			type: String,
+			default: 'solid',
+			validator: value => ['outline', 'solid'].includes(value),
+		},
+		padded: {
+			type: Boolean,
+			default: true,
 		},
 	})
+
+	const ui = useAppConfig().ui.input
 
 	const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
 	const input = ref(null)
 
-	const autoFocus = () => {
-		if (props.autofocus) {
-			input.value?.focus()
-		}
-	}
-
 	const inputClass = computed(() => {
-		const defaultInput = `relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none`
+		let icon = ''
 
-		const padding =
-			props.icon || props.loading
-				? `p-${props.iconPosition === 'left' ? 'l' : 'r'}-32 p-y-8 p-${
-						props.iconPosition === 'left' ? 'r' : 'l'
-				  }-8`
-				: `p-8`
+		if (props.icon || props.loading) {
+			if (props.iconPosition === 'left') {
+				icon = `p-l-8 p-r-2`
+			} else {
+				icon = `p-r-8 p-l-2`
+			}
+		}
 
-		const appearance = inputAppearance[props.appearance]
+		const padding = props.padded ? ui.padding[props.size] : ''
 
-		const textSize = textSizes[props.textSize]
-
-		const radius = props.radius !== 'disabled' ? radiusSizes[props.radius] : ''
-
-		return `${defaultInput} ${appearance} ${textSize} ${radius} ${padding}`
+		return `${ui.base} ${ui.variant[props.variant]} ${ui.size[props.size]} ${
+			ui.radius[props.radius]
+		} ${icon} ${padding} ${ui.custom}`
 	})
-
-	const inputAppearance = {
-		white: 'text-gray-900 bg-white border border-primary placeholder:text-gray-400 focus:ring-2 focus:ring-primary-500 focus:border-primary-500',
-		gray: 'bg-zinc-800 border border-primary placeholder:text-zinc-600 focus:ring-2 focus:ring-primary focus:border-primary',
-		none: 'border-0 border-primary bg-transparent focus:ring-0 focus:shadow-none placeholder:text-gray-400',
-	}
-
-	const radiusSizes = {
-		xs: 'rounded-2',
-		sm: 'rounded-4',
-		md: 'rounded-8',
-		lg: 'rounded-12',
-		xl: 'rounded-16',
-		full: 'rounded-full',
-	}
-
-	const textSizes = {
-		xs: 'text-xs',
-		sm: 'text-sm',
-		md: 'text-base',
-		lg: 'text-lg',
-		xl: 'text-xl',
-		'2xl': 'text-2xl',
-		'3xl': 'text-3xl',
-	}
 
 	const displayIcon = computed(() => {
 		const shouldDisplayLeftIcon = props.iconPosition === 'left' && (props.loading || props.icon)
@@ -142,16 +111,10 @@
 	const onInput = event => {
 		emit('update:modelValue', event.target.value)
 	}
-
-	onMounted(() => {
-		setTimeout(() => {
-			autoFocus()
-		}, 100)
-	})
 </script>
 
 <template>
-	<div class="relative">
+	<div :class="ui.wrapper">
 		<input
 			:id="name"
 			ref="input"
@@ -163,8 +126,7 @@
 			:disabled="disabled || loading"
 			:readonly="readonly"
 			:autocomplete="autocomplete"
-			:spellcheck="spellcheck"
-			:class="inputClass"
+			:class="[inputClass]"
 			@input="onInput"
 			@focus="$emit('focus', $event)"
 			@blur="$emit('blur', $event)"
@@ -172,13 +134,13 @@
 		<Icon
 			v-if="displayIcon.left"
 			:name="loading ? loadingIcon : icon"
-			:class="['transform-translate-y--1/2 pointer-events-none absolute left-8 top-1/2', iconSize]"
+			:class="[ui.icon.base, 'left-2', ui.icon.size[props.size]]"
 			aria-hidden="true"
 		/>
 		<Icon
 			v-if="displayIcon.right"
 			:name="loading ? loadingIcon : icon"
-			:class="['transform-translate-y--1/2 pointer-events-none absolute right-8 top-1/2', iconSize]"
+			:class="[ui.icon.base, 'right-2', ui.icon.size[props.size]]"
 			aria-hidden="true"
 		/>
 	</div>
