@@ -121,9 +121,15 @@
 			</div>
 			<div class="flex items-center justify-center gap-6">
 				<forms-select-component v-model="locale" name="select" :options="languages" />
-				<Icon
-					:name="isDarkMode ? 'material-symbols:dark-mode-outline' : 'material-symbols:light-mode-outline'"
-					class="h-6 w-6 cursor-pointer"
+				<button-component
+					icon="mdi:github"
+					to="https://github.com/joseehilton147/vs"
+					target="_blank"
+					variant="icon"
+				/>
+				<button-component
+					:icon="isDarkMode ? 'material-symbols:dark-mode-outline' : 'material-symbols:light-mode-outline'"
+					variant="icon"
 					@click="toggleDark"
 				/>
 			</div>
