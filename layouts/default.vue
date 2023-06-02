@@ -4,43 +4,45 @@
 	const currentItem = ref(0)
 	const isDarkMode = ref(false)
 
+	const {t} = useI18n()
+
 	const menuItems = reactive([
 		{
-			title: 'Introdução',
+			title: t('introduction.title'),
 			link: '/',
 		},
+		// {
+		// 	title: 'Acordeão',
+		// 	link: '/docs/accordion',
+		// },
+		// {
+		// 	title: 'Botão',
+		// 	link: '/docs/button',
+		// },
+		// {
+		// 	title: 'Modal',
+		// 	link: '/docs/modal',
+		// },
+		// {
+		// 	title: 'Radio',
+		// 	link: '/docs/radio',
+		// },
 		{
-			title: 'Acordeão',
-			link: '/docs/accordion',
-		},
-		{
-			title: 'Botão',
-			link: '/docs/button',
-		},
-		{
-			title: 'Modal',
-			link: '/docs/modal',
-		},
-		{
-			title: 'Radio',
-			link: '/docs/radio',
-		},
-		{
-			title: 'Input',
+			title: t('input.title'),
 			link: '/docs/input',
 		},
-		{
-			title: 'Checkbox',
-			link: '/docs/checkbox',
-		},
-		{
-			title: 'Select',
-			link: '/docs/select',
-		},
-		{
-			title: 'Switch',
-			link: '/docs/switch',
-		},
+		// {
+		// 	title: 'Checkbox',
+		// 	link: '/docs/checkbox',
+		// },
+		// {
+		// 	title: 'Select',
+		// 	link: '/docs/select',
+		// },
+		// {
+		// 	title: 'Switch',
+		// 	link: '/docs/switch',
+		// },
 	])
 
 	watch(isDarkMode, value => {
@@ -91,6 +93,8 @@
 		})
 	}
 
+	const {locale} = useI18n()
+
 	onMounted(() => {
 		if (colorMode.preference === 'dark') {
 			isDarkMode.value = true
@@ -104,7 +108,8 @@
 			<div class="bg-primary rounded-md p-2">
 				<h1 class="animate-pulse text-4xl text-white">VS</h1>
 			</div>
-			<div class="flex items-center justify-center">
+			<div class="flex items-center justify-center gap-6">
+				<forms-select-component v-model="locale" name="select" :options="['en', 'br']" />
 				<Icon
 					:name="isDarkMode ? 'material-symbols:dark-mode-outline' : 'material-symbols:light-mode-outline'"
 					class="h-6 w-6 cursor-pointer"

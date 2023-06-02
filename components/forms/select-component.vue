@@ -6,7 +6,7 @@
 		},
 		name: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		placeholder: {
 			type: String,
@@ -24,9 +24,61 @@
 			type: String,
 			default: null,
 		},
+		loadingIcon: {
+			type: String,
+			default: 'line-md:loading-twotone-loop',
+		},
+		leadingIcon: {
+			type: String,
+			default: null,
+		},
+		trailingIcon: {
+			type: String,
+			default: () => useAppConfig().ui.select.default.trailingIcon,
+		},
+		trailing: {
+			type: Boolean,
+			default: false,
+		},
+		leading: {
+			type: Boolean,
+			default: false,
+		},
+		loading: {
+			type: Boolean,
+			default: false,
+		},
+		padded: {
+			type: Boolean,
+			default: true,
+		},
 		options: {
 			type: Array,
 			default: () => [],
+		},
+		size: {
+			type: String,
+			default: () => useAppConfig().ui.select.default.size,
+			validator(value) {
+				return Object.keys(useAppConfig().ui.select.size).includes(value)
+			},
+		},
+		color: {
+			type: String,
+			default: () => useAppConfig().ui.select.default.color,
+			validator(value) {
+				return [...Object.keys(useAppConfig().ui.select.color)].includes(value)
+			},
+		},
+		variant: {
+			type: String,
+			default: () => useAppConfig().ui.select.default.variant,
+			validator(value) {
+				return [
+					...Object.keys(useAppConfig().ui.select.variant),
+					...Object.values(useAppConfig().ui.select.color).flatMap(value => Object.keys(value)),
+				].includes(value)
+			},
 		},
 		textAttribute: {
 			type: String,
@@ -37,6 +89,9 @@
 			default: 'value',
 		},
 	})
+
+	const ui = ref(useAppConfig().ui.select)
+	const slots = useSlots()
 
 	const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
@@ -99,40 +154,120 @@
 	})
 
 	const selectClass = computed(() => {
-		const defaultClass = 'relative block disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none'
+		const classes = [
+			ui.value.base,
+			ui.value.rounded,
+			ui.value.size[props.size],
+			ui.value.custom,
+			ui.value.variant[props.variant],
+		]
+		if (props.padded) {
+			classes.push(ui.value.padding[props.size])
+		}
+		if (isLeading.value || slots.leading) {
+			classes.push(ui.value.leading.padding[props.size])
+		}
+		if (isTrailing.value || slots.trailing) {
+			classes.push(ui.value.trailing.padding[props.size])
+		}
+		return classes.join(' ')
+	})
 
-		const white =
-			'bg-zinc-800 text-gray-400 appearance-none inline-block py-12 pl-12 pr-24 rounded-md leading-tight'
+	const isLeading = computed(() => {
+		return (
+			(props.icon && props.leading) ||
+			(props.icon && !props.trailing) ||
+			(props.loading && !props.trailing) ||
+			props.leadingIcon
+		)
+	})
 
-		return `${defaultClass} ${white}`
-		//   return classNames(
-		//     ui.value.base,
-		//     ui.value.size[props.size],
-		//     ui.value.padding[props.size],
-		//     ui.value.appearance[props.appearance],
-		//     !!props.icon && ui.value.leading.padding[props.size],
-		//     ui.value.trailing.padding[props.size],
-		//     ui.value.custom
-		//   )
+	const isTrailing = computed(() => {
+		return (props.icon && props.trailing) || (props.loading && props.trailing) || props.trailingIcon
+	})
+
+	const leadingIconName = computed(() => {
+		if (props.loading) {
+			return props.loadingIcon
+		}
+		return props.leadingIcon || props.icon
+	})
+
+	const trailingIconName = computed(() => {
+		if (props.loading && !isLeading.value) {
+			return props.loadingIcon
+		}
+		return props.trailingIcon || props.icon
+	})
+
+	const leadingWrapperIconClass = computed(() => {
+		const classes = [
+			ui.value.icon.leading.wrapper,
+			ui.value.icon.leading.pointer,
+			ui.value.icon.leading.padding[props.size],
+		]
+		return classes.join(' ')
+	})
+
+	const leadingIconClass = computed(() => {
+		const classes = [ui.value.icon.base, ui.value.icon.size[props.size]]
+
+		if (props.loading) {
+			classes.push('animate-spin')
+		}
+
+		return classes.join(' ')
+	})
+
+	const trailingWrapperIconClass = computed(() => {
+		const classes = [
+			ui.value.icon.trailing.wrapper,
+			ui.value.icon.trailing.pointer,
+			ui.value.icon.trailing.padding[props.size],
+		]
+
+		return classes.join(' ')
+	})
+
+	const trailingIconClass = computed(() => {
+		const classes = [ui.value.icon.base, props.loading && !isLeading.value && 'animate-spin']
+
+		classes.push(ui.value.icon.size[props.size])
+
+		return classes.join(' ')
 	})
 </script>
 
 <template>
-	<div class="relative w-fit">
+	<div :class="ui.wrapper">
 		<select
 			:id="name"
 			:name="name"
 			:value="modelValue"
 			:required="required"
-			:disabled="disabled"
+			:disabled="disabled || loading"
 			:class="selectClass"
 			@input="onInput"
 		>
-			<template
-				v-for="(option, index) in normalizedOptionsWithPlaceholder"
-				:key="`${option[valueAttribute]}-${index}`"
-			>
+			<template v-for="(option, index) in normalizedOptionsWithPlaceholder">
+				<optgroup
+					v-if="option.children"
+					:key="`${option[valueAttribute]}-optgroup-${index}`"
+					:value="option[valueAttribute]"
+					:label="option[textAttribute]"
+				>
+					<option
+						v-for="(childOption, index2) in option.children"
+						:key="`${childOption[valueAttribute]}-${index}-${index2}`"
+						:value="childOption[valueAttribute]"
+						:selected="childOption[valueAttribute] === normalizedValue"
+						:disabled="childOption.disabled"
+						v-text="childOption[textAttribute]"
+					/>
+				</optgroup>
 				<option
+					v-else
+					:key="`${option[valueAttribute]}-${index}`"
 					:value="option[valueAttribute]"
 					:selected="option[valueAttribute] === normalizedValue"
 					:disabled="option.disabled"
@@ -140,8 +275,17 @@
 				/>
 			</template>
 		</select>
-		<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-8">
-			<Icon name="heroicons:chevron-down" class="wh-16 text-gray-400" />
-		</div>
+
+		<span v-if="(isLeading && leadingIconName) || $slots.leading" :class="leadingWrapperIconClass">
+			<slot name="leading" :disabled="disabled" :loading="loading">
+				<Icon :name="leadingIconName" :class="leadingIconClass" />
+			</slot>
+		</span>
+
+		<span v-if="(isTrailing && trailingIconName) || $slots.trailing" :class="trailingWrapperIconClass">
+			<slot name="trailing" :disabled="disabled" :loading="loading">
+				<Icon :name="trailingIconName" :class="trailingIconClass" aria-hidden="true" />
+			</slot>
+		</span>
 	</div>
 </template>
