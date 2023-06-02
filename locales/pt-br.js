@@ -1,4 +1,7 @@
 export default {
+	global: {
+		copyCode: 'Copiado para a área de transferência',
+	},
 	introduction: {
 		title: 'Introdução',
 		text: 'Este é um projeto com componentes pré construídos para Nuxt 3, ainda está em desenvolvimento, mas você pode usá-lo se quiser.',

@@ -5,8 +5,6 @@
 
 	const selectedColor = ref('primary')
 	const selectedVariant = ref('solid')
-
-	const config = useAppConfig()
 </script>
 
 <template>
@@ -18,12 +16,6 @@
 				<code>variant</code>.
 			</p>
 		</template>
-		<forms-select-component
-			v-model="selectedVariant"
-			name="selectedVariant"
-			:options="config.ui.button.variants"
-			label="variant"
-		/>
 		<div class="m-t-32 flex gap-16">
 			<button-component :variant="selectedVariant" :label="selectedVariant" />
 		</div>
@@ -34,7 +26,6 @@
 			<h1 class="text-2xl">Cores</h1>
 			<p class="m-y-12">Existem algumas cores pré definidas, você pode alterar pelo prop <code>color</code>.</p>
 		</template>
-		<forms-select-component v-model="selectedColor" name="selectedColor" :options="config.ui.button.colors" />
 		<div class="m-t-32 flex flex-col">
 			<div class="flex items-center gap-16">
 				<button-component :color="selectedColor">solid</button-component>

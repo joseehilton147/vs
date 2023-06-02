@@ -3,14 +3,14 @@
 </script>
 
 <template>
-	<div class="rounded-md border p-4 dark:border-none dark:bg-neutral-900">
-		<header v-if="slots?.header">
+	<div class="rounded-md bg-white shadow-sm dark:bg-neutral-900">
+		<header v-if="slots?.header" class="p-x-4 p-t-4 border-b">
 			<slot name="header" />
 		</header>
-		<main>
+		<main class="p-4">
 			<slot />
 		</main>
-		<footer v-if="slots?.footer">
+		<footer v-if="slots?.footer" class="p-x-4 p-b-4 border-t">
 			<slot name="footer" />
 		</footer>
 	</div>

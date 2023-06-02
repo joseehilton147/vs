@@ -1,3 +1,15 @@
+<script setup>
+	const sizings = ref(['xs', 'sm', 'md', 'lg', 'xl'])
+	const selectedSizing = ref('md')
+
+	const iconPositions = ref(['left', 'right'])
+	const selectedIconPosition = ref('left')
+	const selectedIconPositionLoading = ref('left')
+
+	const radius = ref(['none', 'sm', 'md', 'lg', 'xl', 'full'])
+	const selectedRadius = ref('md')
+</script>
+
 <template>
 	<div>
 		<card-component>
@@ -10,6 +22,9 @@
 				</i18n-t>
 			</template>
 			<input-component name="name" appearance="none" />
+			<template #footer>
+				<code-block-component source="<input-component />"></code-block-component>
+			</template>
 		</card-component>
 
 		<card-component class="m-y-8">
@@ -21,44 +36,32 @@
 					</template>
 				</i18n-t>
 			</template>
-			<div class="flex flex-col gap-4">
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						size="xs"
-					/>
-					<code>size="xs"</code>
+			<template #default>
+				<div class="m-b-4 flex items-center gap-4">
+					<div v-for="(sizing, index) of sizings" :key="index">
+						<radio-component
+							v-model="selectedSizing"
+							:label="sizing"
+							:value="sizing"
+							name="input-sizing"
+							class="flex"
+						/>
+					</div>
 				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						size="md"
-					/>
-					<code>size="md"</code>
+				<div class="flex flex-col gap-4">
+					<div class="flex items-center gap-4">
+						<input-component
+							name="name"
+							:placeholder="$t('input.examples.placeholder')"
+							appearance="none"
+							:size="selectedSizing"
+						/>
+					</div>
 				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						size="lg"
-					/>
-					<code>size="lg"</code>
-				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						size="xl"
-					/>
-					<code>size="xl"</code>
-				</div>
-			</div>
+			</template>
+			<template #footer>
+				<code-block-component :source="`<input-component size='${selectedSizing}' />`"></code-block-component>
+			</template>
 		</card-component>
 
 		<card-component class="m-y-8 relative">
@@ -91,16 +94,17 @@
 					</template>
 				</i18n-t>
 			</template>
-			<div class="m-t-8 flex flex-col gap-4">
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						icon="material-symbols:search"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						icon-position="left"
-					/>
-					<code>icon-position="left"</code>
+			<template #default>
+				<div class="m-b-4 flex items-center gap-4">
+					<div v-for="(position, index) of iconPositions" :key="index">
+						<radio-component
+							v-model="selectedIconPosition"
+							:label="position"
+							:value="position"
+							name="input-sizing"
+							class="flex"
+						/>
+					</div>
 				</div>
 				<div class="flex items-center gap-4">
 					<input-component
@@ -108,11 +112,15 @@
 						icon="material-symbols:search"
 						:placeholder="$t('input.examples.placeholder')"
 						appearance="none"
-						icon-position="right"
+						:icon-position="selectedIconPosition"
 					/>
-					<code>icon-position="right"</code>
 				</div>
-			</div>
+			</template>
+			<template #footer>
+				<code-block-component
+					:source="`<input-component icon-position='${selectedIconPosition}' />`"
+				></code-block-component>
+			</template>
 		</card-component>
 
 		<card-component class="m-y-8">
@@ -124,26 +132,32 @@
 					</template>
 				</i18n-t>
 			</template>
-			<div class="m-t-8 flex flex-col gap-4">
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						loading
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						icon-position="left"
-					/>
+			<template #default>
+				<div class="m-b-4 flex items-center gap-4">
+					<div v-for="(position, index) of iconPositions" :key="index">
+						<radio-component
+							v-model="selectedIconPositionLoading"
+							:label="position"
+							:value="position"
+							name="input-loading"
+							class="flex"
+						/>
+					</div>
 				</div>
 				<div class="flex items-center gap-4">
 					<input-component
 						name="name"
 						loading
 						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						icon-position="right"
+						:icon-position="selectedIconPositionLoading"
 					/>
 				</div>
-			</div>
+			</template>
+			<template #footer>
+				<code-block-component
+					:source="`<input-component icon-position='${selectedIconPositionLoading}' loading />`"
+				></code-block-component>
+			</template>
 		</card-component>
 
 		<card-component class="m-y-8">
@@ -155,7 +169,14 @@
 					</template>
 				</i18n-t>
 			</template>
-			<input-component name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" />
+			<template #default>
+				<input-component name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" />
+			</template>
+			<template #footer>
+				<code-block-component
+					:source="`<input-component placeholder='${$t('input.examples.placeholder')}' />`"
+				></code-block-component>
+			</template>
 		</card-component>
 
 		<card-component class="m-y-8">
@@ -167,7 +188,17 @@
 					</template>
 				</i18n-t>
 			</template>
-			<input-component name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" disabled />
+			<template #default>
+				<input-component
+					name="name"
+					:placeholder="$t('input.examples.placeholder')"
+					appearance="none"
+					disabled
+				/>
+			</template>
+			<template #footer>
+				<code-block-component :source="`<input-component disabled />`"></code-block-component>
+			</template>
 		</card-component>
 
 		<card-component class="m-y-8">
@@ -179,62 +210,30 @@
 					</template>
 				</i18n-t>
 			</template>
-			<div class="flex flex-col gap-4">
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						radius="none"
-					/>
-					<code>radius="none"</code>
+			<template #default>
+				<div class="m-b-4 flex items-center gap-4">
+					<div v-for="(radio, index) of radius" :key="index">
+						<radio-component
+							v-model="selectedRadius"
+							:label="radio"
+							:value="radio"
+							name="input-sizing"
+							class="flex"
+						/>
+					</div>
 				</div>
 				<div class="flex items-center gap-4">
 					<input-component
 						name="name"
 						:placeholder="$t('input.examples.placeholder')"
 						appearance="none"
-						radius="sm"
+						:radius="selectedRadius"
 					/>
-					<code>radius="sm"</code>
 				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						radius="md"
-					/>
-					<code>radius="md"</code>
-				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						radius="lg"
-					/>
-					<code>radius="lg"</code>
-				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						radius="xl"
-					/>
-					<code>radius="xl"</code>
-				</div>
-				<div class="flex items-center gap-4">
-					<input-component
-						name="name"
-						:placeholder="$t('input.examples.placeholder')"
-						appearance="none"
-						radius="full"
-					/>
-					<code>radius="full"</code>
-				</div>
-			</div>
+			</template>
+			<template #footer>
+				<code-block-component :source="`<input-component radius=${selectedRadius} />`"></code-block-component>
+			</template>
 		</card-component>
 	</div>
 </template>

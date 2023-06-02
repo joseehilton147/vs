@@ -30,7 +30,7 @@
 		},
 		inputClass: {
 			type: String,
-			default: 'wh-16 rounded-full border',
+			default: 'w-4 h-4 rounded-full border',
 		},
 		classChecked: {
 			type: String,
@@ -78,7 +78,7 @@
 			/>
 			<div :class="[inputClass, isChecked ? classChecked : classUnchecked, disabled ? 'opacity-30' : '']"></div>
 		</div>
-		<div v-if="label || $slots.label" :class="['ml-12 text-base', disabled ? 'opacity-30' : '']">
+		<div v-if="label || $slots.label" :class="['m-l-1 text-base', disabled ? 'opacity-30' : '']">
 			<label :for="`${name}-${value}`">
 				<slot name="label">{{ label }}</slot>
 				<span v-if="required" class="text-red-500">*</span>

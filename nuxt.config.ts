@@ -2,7 +2,7 @@
 import {defineNuxtConfig} from 'nuxt/config'
 
 export default defineNuxtConfig({
-	css: ['~/assets/style/main.css', '@unocss/reset/tailwind.css'],
+	css: ['~/assets/style/main.css', '~/assets/style/code-block.css', '@unocss/reset/tailwind.css'],
 
 	modules: ['@unocss/nuxt', 'nuxt-icon', '@nuxtjs/color-mode', '@nuxtjs/i18n'],
 
@@ -34,6 +34,10 @@ export default defineNuxtConfig({
 
 	imports: {
 		dirs: ['composables/**'],
+	},
+
+	build: {
+		transpile: ['vue-toastification'],
 	},
 
 	experimental: {

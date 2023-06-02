@@ -43,7 +43,7 @@
 		},
 		iconSize: {
 			type: String,
-			default: 'wh-24',
+			default: 'w-6 h-6',
 		},
 		block: {
 			type: Boolean,
@@ -105,7 +105,7 @@
 
 	const buttonClass = computed(() => {
 		const defaultBtn = `focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out ${
-			props.radius === 'full' ? 'p-x-8 p-y-8' : 'p-x-16 p-y-8'
+			props.radius === 'full' ? 'p-x-2 p-y-2' : 'p-x-4 p-y-2'
 		}`
 
 		const isBlock = props.block
@@ -149,11 +149,11 @@
 	}
 
 	const gapSizes = {
-		xs: 'gap-x-2',
-		sm: 'gap-x-4',
-		md: 'gap-x-6',
-		lg: 'gap-x-8',
-		xl: 'gap-x-10',
+		xs: 'gap-x-1.5',
+		sm: 'gap-x-2',
+		md: 'gap-x-2',
+		lg: 'gap-x-2',
+		xl: 'gap-x-2',
 	}
 
 	const radiusSizes = {

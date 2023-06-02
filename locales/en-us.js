@@ -1,4 +1,7 @@
 export default {
+	global: {
+		copyCode: 'Copied to clipboard',
+	},
 	introduction: {
 		title: 'Introduction',
 		text: 'This is a project with pre builded components for Nuxt 3, it is still in development, but you can use it if you want.',

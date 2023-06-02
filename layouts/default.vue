@@ -95,6 +95,17 @@
 
 	const {locale} = useI18n()
 
+	const languages = ref([
+		{
+			value: 'en',
+			text: 'English',
+		},
+		{
+			value: 'br',
+			text: 'Português',
+		},
+	])
+
 	onMounted(() => {
 		if (colorMode.preference === 'dark') {
 			isDarkMode.value = true
@@ -103,13 +114,13 @@
 </script>
 
 <template>
-	<header class="p-y-4 border-b dark:border-zinc-900">
+	<header class="p-y-4 border-b bg-white dark:border-zinc-900 dark:bg-neutral-900">
 		<div class="m-y-2 container flex items-center justify-between">
 			<div class="bg-primary rounded-md p-2">
 				<h1 class="animate-pulse text-4xl text-white">VS</h1>
 			</div>
 			<div class="flex items-center justify-center gap-6">
-				<forms-select-component v-model="locale" name="select" :options="['en', 'br']" />
+				<forms-select-component v-model="locale" name="select" :options="languages" />
 				<Icon
 					:name="isDarkMode ? 'material-symbols:dark-mode-outline' : 'material-symbols:light-mode-outline'"
 					class="h-6 w-6 cursor-pointer"
@@ -120,13 +131,13 @@
 	</header>
 	<div class="m-y-8 container">
 		<div class="grid grid-cols-12 gap-4">
-			<aside class="col-start-1 col-end-4">
+			<aside class="col-start-1 col-end-4 h-fit rounded-md bg-white shadow-sm dark:bg-neutral-900">
 				<nuxt-link
 					v-for="(item, index) of menuItems"
 					:key="item.title"
 					:to="item.link"
-					:class="`m-b-4 hover:bg-primary-500 block cursor-pointer rounded-sm p-4 text-lg ${
-						index === currentItem ? 'bg-primary-600 text-white' : 'dark:bg-global-dark-100 bg-global'
+					:class="`m-b-2 hover:bg-primary-500 hover:dark:bg-primary-500 block cursor-pointer rounded-sm p-4 text-lg ${
+						index === currentItem ? 'bg-primary-600 text-white' : 'bg-white dark:bg-neutral-900'
 					}`"
 					@click="setCurrentItem(index)"
 				>
