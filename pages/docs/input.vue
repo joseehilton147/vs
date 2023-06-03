@@ -12,7 +12,7 @@
 
 <template>
 	<div>
-		<card-component>
+		<utils-card-component>
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.default.title') }}</h1>
 				<i18n-t keypath="input.default.text" tag="p" class="m-y-3" scope="global">
@@ -23,11 +23,11 @@
 			</template>
 			<input-component name="name" appearance="none" />
 			<template #footer>
-				<code-block-component source="<input-component />"></code-block-component>
+				<utils-code-block-component source="<input-component />"></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 
-		<card-component class="m-y-8">
+		<utils-card-component class="m-y-8">
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.sizing.title') }}</h1>
 				<i18n-t keypath="input.sizing.text" tag="p" class="m-y-3" scope="global">
@@ -60,11 +60,13 @@
 				</div>
 			</template>
 			<template #footer>
-				<code-block-component :source="`<input-component size='${selectedSizing}' />`"></code-block-component>
+				<utils-code-block-component
+					:source="`<input-component size='${selectedSizing}' />`"
+				></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 
-		<card-component class="m-y-8 relative">
+		<utils-card-component class="m-y-8 relative">
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.icon.title') }}</h1>
 				<i18n-t keypath="input.icon.text.one.value" tag="p" class="m-y-3" scope="global">
@@ -117,13 +119,13 @@
 				</div>
 			</template>
 			<template #footer>
-				<code-block-component
+				<utils-code-block-component
 					:source="`<input-component icon-position='${selectedIconPosition}' />`"
-				></code-block-component>
+				></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 
-		<card-component class="m-y-8">
+		<utils-card-component class="m-y-8">
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.loading.title') }}</h1>
 				<i18n-t keypath="input.loading.text" tag="p" class="m-y-3" scope="global">
@@ -154,13 +156,13 @@
 				</div>
 			</template>
 			<template #footer>
-				<code-block-component
+				<utils-code-block-component
 					:source="`<input-component icon-position='${selectedIconPositionLoading}' loading />`"
-				></code-block-component>
+				></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 
-		<card-component class="m-y-8">
+		<utils-card-component class="m-y-8">
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.placeholder.title') }}</h1>
 				<i18n-t keypath="input.placeholder.text" tag="p" class="m-y-3" scope="global">
@@ -173,13 +175,13 @@
 				<input-component name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" />
 			</template>
 			<template #footer>
-				<code-block-component
+				<utils-code-block-component
 					:source="`<input-component placeholder='${$t('input.examples.placeholder')}' />`"
-				></code-block-component>
+				></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 
-		<card-component class="m-y-8">
+		<utils-card-component class="m-y-8">
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.disabled.title') }}</h1>
 				<i18n-t keypath="input.disabled.text" tag="p" class="m-y-3" scope="global">
@@ -197,11 +199,11 @@
 				/>
 			</template>
 			<template #footer>
-				<code-block-component :source="`<input-component disabled />`"></code-block-component>
+				<utils-code-block-component :source="`<input-component disabled />`"></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 
-		<card-component class="m-y-8">
+		<utils-card-component class="m-y-8">
 			<template #header>
 				<h1 class="text-2xl">{{ $t('input.radius.title') }}</h1>
 				<i18n-t keypath="input.radius.text" tag="p" class="m-y-3" scope="global">
@@ -232,8 +234,10 @@
 				</div>
 			</template>
 			<template #footer>
-				<code-block-component :source="`<input-component radius=${selectedRadius} />`"></code-block-component>
+				<utils-code-block-component
+					:source="`<input-component radius=${selectedRadius} />`"
+				></utils-code-block-component>
 			</template>
-		</card-component>
+		</utils-card-component>
 	</div>
 </template>

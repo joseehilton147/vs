@@ -11,38 +11,14 @@
 			title: t('introduction.title'),
 			link: '/',
 		},
-		// {
-		// 	title: 'Acordeão',
-		// 	link: '/docs/accordion',
-		// },
-		// {
-		// 	title: 'Botão',
-		// 	link: '/docs/button',
-		// },
-		// {
-		// 	title: 'Modal',
-		// 	link: '/docs/modal',
-		// },
-		// {
-		// 	title: 'Radio',
-		// 	link: '/docs/radio',
-		// },
 		{
 			title: t('input.title'),
 			link: '/docs/input',
 		},
-		// {
-		// 	title: 'Checkbox',
-		// 	link: '/docs/checkbox',
-		// },
-		// {
-		// 	title: 'Select',
-		// 	link: '/docs/select',
-		// },
-		// {
-		// 	title: 'Switch',
-		// 	link: '/docs/switch',
-		// },
+		{
+			title: 'Select',
+			link: '/docs/select',
+		},
 	])
 
 	watch(isDarkMode, value => {
@@ -120,7 +96,7 @@
 				<h1 class="animate-pulse text-4xl text-white">VS</h1>
 			</div>
 			<div class="flex items-center justify-center gap-6">
-				<forms-select-component v-model="locale" name="select" :options="languages" />
+				<select-component v-model="locale" name="select" :options="languages" />
 				<button-component
 					icon="mdi:github"
 					to="https://github.com/joseehilton147/vs"

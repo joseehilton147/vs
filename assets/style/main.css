@@ -122,3 +122,51 @@ code {
 .dark::view-transition-new(root) {
 	z-index: 1;
 }
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #c0c0c0 transparent;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+	width: 4px;
+}
+*::-webkit-scrollbar-track {
+	border-radius: 8px;
+	background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:hover {
+	background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:active {
+	background-color: #b8c0c2;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: #c0c0c0;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background-color: #a3a3a3;
+}
+
+*::-webkit-scrollbar-thumb:active {
+	background-color: #a3a3a3;
+}
+
+/* TRANSITION */
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.2s;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}

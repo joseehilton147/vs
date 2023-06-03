@@ -76,37 +76,5 @@ export default defineAppConfig({
 			},
 			custom: '',
 		},
-		select: {
-			wrapper: 'relative',
-			base: 'relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none',
-			placeholder: 'text-gray-900 dark:text-white',
-			custom: '',
-			variant: {
-				solid: 'border bg-white border-gray-300  disabled:bg-gray-200 dark:border-neutral-900 dark:bg-neutral-800 dark:disabled:bg-neutral-800/80',
-				outline: 'bg-transparent border disabled:bg-gray-400 dark:border-gray-100 dark:disabled:bg-neutral-600',
-			},
-			size: {
-				xs: 'text-xs',
-				sm: 'text-sm',
-				md: 'text-base',
-				lg: 'text-lg',
-				xl: 'text-xl',
-			},
-			padding: {
-				xs: 'p-x-2 p-y-1',
-				sm: 'p-x-2.5 p-y-1.5',
-				md: 'p-x-3 p-y-2',
-				lg: 'p-x-3.5 p-y-2.5',
-				xl: 'p-x-4 p-y-3',
-			},
-			radius: {
-				none: 'rounded-none',
-				sm: 'rounded-sm',
-				md: 'rounded-md',
-				lg: 'rounded-lg',
-				xl: 'rounded-xl',
-				full: 'rounded-full',
-			},
-		},
 	},
 })

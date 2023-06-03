@@ -2,7 +2,8 @@
 	<client-only>
 		<div class="relative mt-4">
 			<pre ref="preNode" class="language-javascript">
-				<code v-dompurify-html="highlightedCode"></code>
+				<!-- eslint-disable vue/no-v-html -->
+				<code v-html="highlightedCode"></code>
 			</pre>
 			<button-component
 				additional-class="absolute right-2 top-2"
