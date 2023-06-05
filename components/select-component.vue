@@ -121,7 +121,7 @@
 		</div>
 		<transition name="fade">
 			<div v-if="isOpen" :class="ui.options.base">
-				<div v-if="search" class="p-x-2 p-y-3 flex items-center bg-gray-200">
+				<div v-if="search" :class="ui.options.search.base">
 					<Icon name="bx:search" :class="ui.options.search.icon" />
 					<input
 						v-model="searchedValue"
@@ -130,7 +130,9 @@
 						:placeholder="$t('select.search.placeholder')"
 					/>
 				</div>
-				<div v-if="filteredOptions.length === 0" :class="ui.options.search.empty">No items to display.</div>
+				<div v-if="filteredOptions.length === 0" :class="ui.options.search.empty">
+					<h1>{{ $t('select.search.noItems') }}</h1>
+				</div>
 				<div v-else>
 					<div
 						v-for="(option, index) in filteredOptions"

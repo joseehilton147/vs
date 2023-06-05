@@ -74,6 +74,7 @@ export default {
 			text: 'Use o prop {code} para habilitar a pesquisa no select.',
 			code: 'search',
 			placeholder: 'Pesquisar...',
+			noItems: 'Nenhum item encontrado.',
 		},
 	},
 }

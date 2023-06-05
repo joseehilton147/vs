@@ -34,7 +34,7 @@
 		},
 		classChecked: {
 			type: String,
-			default: 'bg-primary-500',
+			default: 'bg-purple-500',
 		},
 		classUnchecked: {
 			type: String,

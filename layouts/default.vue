@@ -92,7 +92,7 @@
 <template>
 	<header class="p-y-4 border-b bg-white dark:border-zinc-900 dark:bg-neutral-900">
 		<div class="m-y-2 container flex items-center justify-between">
-			<div class="bg-primary rounded-md p-2">
+			<div class="rounded-md bg-purple-500 p-2">
 				<h1 class="animate-pulse text-4xl text-white">VS</h1>
 			</div>
 			<div class="flex items-center justify-center gap-6">
@@ -118,8 +118,8 @@
 					v-for="(item, index) of menuItems"
 					:key="item.title"
 					:to="item.link"
-					:class="`m-b-2 hover:bg-primary-500 hover:dark:bg-primary-500 block cursor-pointer rounded-sm p-4 text-lg ${
-						index === currentItem ? 'bg-primary-600 text-white' : 'bg-white dark:bg-neutral-900'
+					:class="`m-b-2 block cursor-pointer rounded-sm p-4 text-lg hover:bg-purple-500 hover:dark:bg-purple-500 ${
+						index === currentItem ? 'bg-purple-600 text-white' : 'bg-white dark:bg-neutral-900'
 					}`"
 					@click="setCurrentItem(index)"
 				>

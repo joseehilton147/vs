@@ -1,8 +1,6 @@
 // @unocss-include
 const variants = {
 	solid: {
-		primary: 'bg-primary-800 color-white hover:bg-primary-900',
-		secondary: 'bg-secondary-800 color-white hover:bg-secondary-900',
 		purple: 'bg-purple-800 color-white hover:bg-purple-900',
 		red: 'bg-red-800 color-white hover:bg-red-900',
 		green: 'bg-green-800 color-white hover:bg-green-900',
@@ -12,8 +10,6 @@ const variants = {
 		blue: 'bg-blue-800 color-white hover:bg-blue-900',
 	},
 	outline: {
-		primary: 'color-primary-500 border border-primary-800 hover:bg-primary-800 hover:color-white',
-		secondary: 'color-secondary-500 border border-secondary-800 hover:bg-secondary-800 hover:color-white',
 		purple: 'color-purple-500 border border-purple-800 hover:bg-purple-800 hover:color-white',
 		red: 'color-red-500 border border-red-800 hover:bg-red-800 hover:color-white',
 		green: 'color-green-500 border border-green-800 hover:bg-green-800 hover:color-white',
@@ -23,8 +19,6 @@ const variants = {
 		blue: 'color-blue-500 border border-blue-800 hover:bg-blue-800 hover:color-white',
 	},
 	soft: {
-		primary: 'color-primary-500 bg-primary-800 bg-opacity-20  hover:bg-opacity-40',
-		secondary: 'color-secondary-500 bg-secondary-800 bg-opacity-20  hover:bg-opacity-40',
 		purple: 'color-purple-500 bg-purple-800 bg-opacity-20  hover:bg-opacity-40',
 		red: 'color-red-500 bg-red-800 bg-opacity-20  hover:bg-opacity-40',
 		green: 'color-green-500 bg-green-800 bg-opacity-20  hover:bg-opacity-40',
@@ -34,8 +28,6 @@ const variants = {
 		blue: 'color-blue-500 bg-blue-800 bg-opacity-20  hover:bg-opacity-40',
 	},
 	ghost: {
-		primary: 'color-primary-500 hover:bg-primary-800 hover:bg-opacity-20',
-		secondary: 'color-secondary-500 hover:bg-secondary-800 hover:bg-opacity-20',
 		purple: 'color-purple-500 hover:bg-purple-800 hover:bg-opacity-20',
 		red: 'color-red-500 hover:bg-red-800 hover:bg-opacity-20',
 		green: 'color-green-500 hover:bg-green-800 hover:bg-opacity-20',
@@ -45,8 +37,6 @@ const variants = {
 		blue: 'color-blue-500 hover:bg-blue-800 hover:bg-opacity-20',
 	},
 	link: {
-		primary: 'color-primary-500 hover:underline',
-		secondary: 'color-secondary-500 hover:underline',
 		purple: 'color-purple-500 hover:underline',
 		red: 'color-red-500 hover:underline',
 		green: 'color-green-500 hover:underline',
@@ -56,8 +46,6 @@ const variants = {
 		blue: 'color-blue-500 hover:underline',
 	},
 	icon: {
-		primary: 'hover:color-primary-500',
-		secondary: 'hover:color-secondary-500',
 		purple: 'hover:color-purple-500',
 		red: 'hover:color-red-500',
 		green: 'hover:color-green-500',

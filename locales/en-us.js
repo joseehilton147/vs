@@ -75,6 +75,7 @@ export default {
 			text: 'Use the prop {code} to enable the search input.',
 			code: 'search',
 			placeholder: 'Type to search...',
+			noItems: 'No items found.',
 		},
 	},
 }

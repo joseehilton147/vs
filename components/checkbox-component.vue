@@ -53,7 +53,7 @@
 				:value="value"
 				:disabled="disabled"
 				type="checkbox"
-				class="'text-primary-500 focus-visible:ring-primary-500 wh-16 rounded border-gray-300 bg-white focus:ring-0 focus:ring-transparent focus:ring-offset-transparent focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+				class="'text-purple-500 wh-16 rounded border-gray-300 bg-white focus:ring-0 focus:ring-transparent focus:ring-offset-transparent focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
 				@focus="$emit('focus', $event)"
 				@blur="$emit('blur', $event)"
 			/>
