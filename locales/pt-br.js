@@ -61,4 +61,13 @@ export default {
 			code: 'radius',
 		},
 	},
+	select: {
+		defaultPlaceholder: 'Escolha uma opção...',
+		title: 'Select',
+		introduction: {
+			title: 'Como usar',
+			text: 'O componente select é um wrapper para o elemento select nativo, é possível usar o {code} para renderizar um select básico.',
+			code: 'select-component',
+		},
+	},
 }

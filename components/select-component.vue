@@ -74,7 +74,10 @@
 			<Icon :name="isOpen ? 'bx:chevron-up' : 'bx:chevron-down'" class="h-6 w-6" />
 		</div>
 		<transition name="fade">
-			<div v-if="isOpen" class="m-t-4 absolute max-h-40 w-full overflow-auto bg-white shadow dark:bg-neutral-800">
+			<div
+				v-if="isOpen"
+				class="m-t-4 z-1 absolute max-h-40 w-full overflow-auto bg-white shadow dark:bg-neutral-800"
+			>
 				<div
 					v-for="(option, index) in formattedOptions"
 					:key="index"

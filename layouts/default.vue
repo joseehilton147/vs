@@ -13,11 +13,11 @@
 		},
 		{
 			title: t('input.title'),
-			link: '/docs/input',
+			link: '/docs/input-component',
 		},
 		{
 			title: 'Select',
-			link: '/docs/select',
+			link: '/docs/select-component',
 		},
 	])
 
