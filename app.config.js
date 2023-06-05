@@ -1,5 +1,29 @@
 // @unocss-include
 
+const select = {
+	wrapper: 'relative',
+	base: 'min-w-30 flex cursor-pointer items-center justify-between p-2',
+	variants: {
+		solid: 'bg-gray-100 dark:bg-neutral-800',
+		outline: '',
+	},
+	disabled: 'pointer-events-none bg-gray-300/50 dark:bg-neutral-800/50',
+	options: {
+		base: 'm-t-4 z-1 absolute max-h-40 w-full overflow-auto bg-white shadow dark:bg-neutral-800',
+		item: 'p-x-4 p-y-2 cursor-pointer transition duration-150 ease-in-out hover:bg-gray-200 dark:hover:bg-neutral-700',
+		search: {
+			icon: 'color-gray-500 m-r-2 h-4 w-4 dark:color-white',
+			input: 'color-gray-500 w-full bg-transparent text-base outline-none dark:color-white',
+			empty: 'p-x-2 p-y-3 text-gray-500 dark:text-white',
+		},
+	},
+	icons: {
+		open: 'bx:chevron-up',
+		closed: 'bx:chevron-down',
+	},
+	custom: '',
+}
+
 export default defineAppConfig({
 	ui: {
 		button: {
@@ -76,5 +100,6 @@ export default defineAppConfig({
 			},
 			custom: '',
 		},
+		select,
 	},
 })

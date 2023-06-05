@@ -70,5 +70,11 @@ export default {
 			text: 'The select component is a wrapper for the native select element, it is possible to use the {code} to render a basic select.',
 			code: 'select-component',
 		},
+		search: {
+			title: 'Search',
+			text: 'Use the prop {code} to enable the search input.',
+			code: 'search',
+			placeholder: 'Type to search...',
+		},
 	},
 }

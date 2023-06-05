@@ -69,5 +69,11 @@ export default {
 			text: 'O componente select é um wrapper para o elemento select nativo, é possível usar o {code} para renderizar um select básico.',
 			code: 'select-component',
 		},
+		search: {
+			title: 'Pesquisa',
+			text: 'Use o prop {code} para habilitar a pesquisa no select.',
+			code: 'search',
+			placeholder: 'Pesquisar...',
+		},
 	},
 }
