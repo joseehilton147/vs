@@ -1,4 +1,47 @@
 // @unocss-include
+
+// COMMON UI
+const radius = {
+	none: 'rounded-none',
+	sm: 'rounded-sm',
+	md: 'rounded-md',
+	lg: 'rounded-lg',
+	xl: 'rounded-xl',
+	full: 'rounded-full',
+}
+
+const size = {
+	xs: 'text-xs',
+	sm: 'text-sm',
+	md: 'text-base',
+	lg: 'text-lg',
+	xl: 'text-xl',
+}
+
+const padding = {
+	none: 'p-x-0 p-y-0',
+	xs: 'p-x-1 p-y-0.5',
+	sm: 'p-x-2 p-y-1',
+	md: 'p-x-3 p-y-2',
+	lg: 'p-x-4 p-y-3',
+	xl: 'p-x-5 p-y-4',
+}
+
+const icon = {
+	base: 'flex-shrink-0',
+	size: {
+		xs: 'h-3.5 w-3.5',
+		sm: 'h-4 w-4',
+		md: 'h-4.5 w-4.5',
+		lg: 'h-5 w-5',
+		xl: 'h-6 w-6',
+	},
+	rotation: ['rotate-0', 'rotate-45', 'rotate-90', 'rotate-180', 'rotate-270', 'rotate-360'],
+	position: ['left', 'right'],
+}
+
+// COMPONENTS UI
+
 const colors = ['primary', 'secondary', 'success', 'warning', 'danger', 'info']
 
 const select = {
@@ -72,44 +115,6 @@ const input = {
 const button = {
 	base: 'focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out',
 	block: 'w-full flex justify-center items-center',
-	size: {
-		xs: 'text-xs',
-		sm: 'text-sm',
-		md: 'text-base',
-		lg: 'text-lg',
-		xl: 'text-xl',
-	},
-	padding: {
-		none: 'p-x-0 p-y-0',
-		xs: 'p-x-1 p-y-0.5',
-		sm: 'p-x-2 p-y-1',
-		md: 'p-x-3 p-y-2',
-		lg: 'p-x-4 p-y-3',
-		xl: 'p-x-5 p-y-4',
-	},
-	icon: {
-		base: 'flex-shrink-0',
-		size: {
-			xs: 'h-3.5 w-3.5',
-			sm: 'h-4 w-4',
-			md: 'h-4.5 w-4.5',
-			lg: 'h-5 w-5',
-			xl: 'h-6 w-6',
-		},
-		rotation: ['rotate-0', 'rotate-45', 'rotate-90', 'rotate-180', 'rotate-270', 'rotate-360'],
-		position: ['left', 'right'],
-		loading: {
-			icon: 'line-md:loading-twotone-loop',
-		},
-	},
-	radius: {
-		none: 'rounded-none',
-		sm: 'rounded-sm',
-		md: 'rounded-md',
-		lg: 'rounded-lg',
-		xl: 'rounded-xl',
-		full: 'rounded-full',
-	},
 	variants: {
 		solid: 'bg-{color}-500 color-white hover:bg-{color}-700',
 		outline: 'color-{color}-500 border border-{color}-700 hover:bg-{color}-700 hover:color-white',
@@ -119,9 +124,29 @@ const button = {
 		icon: 'hover:color-{color}-500',
 	},
 	custom: '',
+	default: {
+		variant: 'solid',
+		size: 'md',
+		radius: 'md',
+		color: 'primary',
+		padding: 'md',
+		icon: {
+			position: 'left',
+			rotation: 'rotate-0',
+			loading: {
+				icon: 'line-md:loading-twotone-loop',
+			},
+		},
+	},
 }
 
 export default defineAppConfig({
+	common: {
+		radius,
+		size,
+		padding,
+		icon,
+	},
 	ui: {
 		colors,
 		toggle: {

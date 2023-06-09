@@ -22,7 +22,7 @@
 		},
 		loadingIcon: {
 			type: String,
-			default: () => appConfig.ui.button.icon.loading.icon,
+			default: () => appConfig.ui.button.default.icon.loading.icon,
 		},
 		disabled: {
 			type: Boolean,
@@ -34,13 +34,13 @@
 		},
 		iconPosition: {
 			type: String,
-			default: 'left',
-			validator: value => appConfig.ui.button.icon.position.includes(value),
+			default: () => appConfig.ui.button.default.icon.position,
+			validator: value => appConfig.common.icon.position.includes(value),
 		},
 		iconRotation: {
 			type: String,
-			default: 'rotate-0',
-			validator: value => appConfig.ui.button.icon.rotation.includes(value),
+			default: () => appConfig.ui.button.default.icon.rotation,
+			validator: value => appConfig.common.icon.rotation.includes(value),
 		},
 		block: {
 			type: Boolean,
@@ -54,34 +54,30 @@
 			type: String,
 			default: null,
 		},
-		truncate: {
-			type: Boolean,
-			default: false,
-		},
 		size: {
 			type: String,
-			default: 'md',
-			validator: value => Object.keys(appConfig.ui.button.size).includes(value),
+			default: () => appConfig.ui.button.default.size,
+			validator: value => Object.keys(appConfig.common.size).includes(value),
 		},
 		variant: {
 			type: String,
-			default: 'solid',
+			default: () => appConfig.ui.button.default.variant,
 			validator: value => Object.keys(appConfig.ui.button.variants).includes(value),
 		},
 		radius: {
 			type: String,
-			default: 'sm',
-			validator: value => Object.keys(appConfig.ui.button.radius).includes(value),
+			default: () => appConfig.ui.button.default.radius,
+			validator: value => Object.keys(appConfig.common.radius).includes(value),
 		},
 		color: {
 			type: String,
-			default: 'primary',
+			default: () => appConfig.ui.button.default.color,
 			validator: value => appConfig.ui.colors.includes(value),
 		},
 		padding: {
 			type: String,
-			default: 'md',
-			validator: value => Object.keys(appConfig.ui.button.padding).includes(value),
+			default: () => appConfig.ui.button.default.padding,
+			validator: value => Object.keys(appConfig.common.padding).includes(value),
 		},
 		ui: {
 			type: Object,
@@ -89,7 +85,7 @@
 		},
 	})
 
-	const ui = computed(() => defu({}, props.ui, appConfig.ui.button))
+	const ui = computed(() => defu({}, props.ui, appConfig.common, appConfig.ui.button))
 
 	const buttonClass = computed(() => {
 		const isBlock = props.block ? ui.value.block : ''
@@ -99,8 +95,8 @@
 			ui.value.base,
 			isBlock,
 			ui.value.size[props.size],
-			ui.value.padding[props.padding],
 			ui.value.radius[props.radius],
+			ui.value.padding[props.padding],
 			variantValue,
 			ui.value.custom,
 		]
@@ -133,7 +129,7 @@
 			aria-hidden="true"
 		/>
 		<slot>
-			<span v-if="label" :class="[truncate ? 'line-clamp-1 break-all text-left' : '']">
+			<span v-if="label">
 				{{ label }}
 			</span>
 		</slot>
