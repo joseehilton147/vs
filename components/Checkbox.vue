@@ -44,7 +44,7 @@
 
 <template>
 	<div class="relative flex items-start">
-		<div class="flex h-20 items-center">
+		<div class="flex h-5 items-center">
 			<input
 				:id="name"
 				v-model="isChecked"
@@ -53,12 +53,12 @@
 				:value="value"
 				:disabled="disabled"
 				type="checkbox"
-				class="'text-purple-500 wh-16 rounded border-gray-300 bg-white focus:ring-0 focus:ring-transparent focus:ring-offset-transparent focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
+				class="'text-purple-500 h-4 w-4 rounded border-gray-300 bg-white focus:ring-0 focus:ring-transparent focus:ring-offset-transparent focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:opacity-50"
 				@focus="$emit('focus', $event)"
 				@blur="$emit('blur', $event)"
 			/>
 		</div>
-		<div v-if="label || $slots.label" class="ml-12 text-sm">
+		<div v-if="label || $slots.label" class="m-l-3 text-sm">
 			<label :for="name" class="text-base">
 				<slot name="label">{{ label }}</slot>
 				<span v-if="required" class="text-red-500">*</span>

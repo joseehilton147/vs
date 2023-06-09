@@ -14,7 +14,7 @@ export default {
 		default: {
 			title: 'How to use',
 			text: 'You can use the {code} to render a basic input.',
-			code: 'input-component',
+			code: 'Input',
 		},
 		sizing: {
 			title: 'Sizing',
@@ -68,7 +68,7 @@ export default {
 		introduction: {
 			title: 'Introduction',
 			text: 'The select component is a wrapper for the native select element, it is possible to use the {code} to render a basic select.',
-			code: 'select-component',
+			code: 'Select',
 		},
 		search: {
 			title: 'Search',

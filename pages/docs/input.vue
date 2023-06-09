@@ -21,9 +21,9 @@
 					</template>
 				</i18n-t>
 			</template>
-			<input-component name="name" appearance="none" />
+			<Input name="name" appearance="none" />
 			<template #footer>
-				<utils-code-block-component source="<input-component />"></utils-code-block-component>
+				<utils-code-block-component source="<Input />"></utils-code-block-component>
 			</template>
 		</utils-card-component>
 
@@ -39,7 +39,7 @@
 			<template #default>
 				<div class="m-b-4 flex items-center gap-4">
 					<div v-for="(sizing, index) of sizings" :key="index">
-						<radio-component
+						<Radio
 							v-model="selectedSizing"
 							:label="sizing"
 							:value="sizing"
@@ -50,7 +50,7 @@
 				</div>
 				<div class="flex flex-col gap-4">
 					<div class="flex items-center gap-4">
-						<input-component
+						<Input
 							name="name"
 							:placeholder="$t('input.examples.placeholder')"
 							appearance="none"
@@ -60,9 +60,7 @@
 				</div>
 			</template>
 			<template #footer>
-				<utils-code-block-component
-					:source="`<input-component size='${selectedSizing}' />`"
-				></utils-code-block-component>
+				<utils-code-block-component :source="`<Input size='${selectedSizing}' />`"></utils-code-block-component>
 			</template>
 		</utils-card-component>
 
@@ -99,7 +97,7 @@
 			<template #default>
 				<div class="m-b-4 flex items-center gap-4">
 					<div v-for="(position, index) of iconPositions" :key="index">
-						<radio-component
+						<Radio
 							v-model="selectedIconPosition"
 							:label="position"
 							:value="position"
@@ -109,7 +107,7 @@
 					</div>
 				</div>
 				<div class="flex items-center gap-4">
-					<input-component
+					<Input
 						name="name"
 						icon="material-symbols:search"
 						:placeholder="$t('input.examples.placeholder')"
@@ -120,7 +118,7 @@
 			</template>
 			<template #footer>
 				<utils-code-block-component
-					:source="`<input-component icon-position='${selectedIconPosition}' />`"
+					:source="`<Input icon='material-symbols:search' icon-position='${selectedIconPosition}' />`"
 				></utils-code-block-component>
 			</template>
 		</utils-card-component>
@@ -137,7 +135,7 @@
 			<template #default>
 				<div class="m-b-4 flex items-center gap-4">
 					<div v-for="(position, index) of iconPositions" :key="index">
-						<radio-component
+						<Radio
 							v-model="selectedIconPositionLoading"
 							:label="position"
 							:value="position"
@@ -147,7 +145,7 @@
 					</div>
 				</div>
 				<div class="flex items-center gap-4">
-					<input-component
+					<Input
 						name="name"
 						loading
 						:placeholder="$t('input.examples.placeholder')"
@@ -157,7 +155,7 @@
 			</template>
 			<template #footer>
 				<utils-code-block-component
-					:source="`<input-component icon-position='${selectedIconPositionLoading}' loading />`"
+					:source="`<Input icon-position='${selectedIconPositionLoading}' loading />`"
 				></utils-code-block-component>
 			</template>
 		</utils-card-component>
@@ -172,11 +170,11 @@
 				</i18n-t>
 			</template>
 			<template #default>
-				<input-component name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" />
+				<Input name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" />
 			</template>
 			<template #footer>
 				<utils-code-block-component
-					:source="`<input-component placeholder='${$t('input.examples.placeholder')}' />`"
+					:source="`<Input placeholder='${$t('input.examples.placeholder')}' />`"
 				></utils-code-block-component>
 			</template>
 		</utils-card-component>
@@ -191,15 +189,10 @@
 				</i18n-t>
 			</template>
 			<template #default>
-				<input-component
-					name="name"
-					:placeholder="$t('input.examples.placeholder')"
-					appearance="none"
-					disabled
-				/>
+				<Input name="name" :placeholder="$t('input.examples.placeholder')" appearance="none" disabled />
 			</template>
 			<template #footer>
-				<utils-code-block-component :source="`<input-component disabled />`"></utils-code-block-component>
+				<utils-code-block-component :source="`<Input disabled />`"></utils-code-block-component>
 			</template>
 		</utils-card-component>
 
@@ -215,7 +208,7 @@
 			<template #default>
 				<div class="m-b-4 flex items-center gap-4">
 					<div v-for="(radio, index) of radius" :key="index">
-						<radio-component
+						<Radio
 							v-model="selectedRadius"
 							:label="radio"
 							:value="radio"
@@ -225,7 +218,7 @@
 					</div>
 				</div>
 				<div class="flex items-center gap-4">
-					<input-component
+					<Input
 						name="name"
 						:placeholder="$t('input.examples.placeholder')"
 						appearance="none"
@@ -234,9 +227,7 @@
 				</div>
 			</template>
 			<template #footer>
-				<utils-code-block-component
-					:source="`<input-component radius=${selectedRadius} />`"
-				></utils-code-block-component>
+				<utils-code-block-component :source="`<Input radius=${selectedRadius} />`"></utils-code-block-component>
 			</template>
 		</utils-card-component>
 	</div>

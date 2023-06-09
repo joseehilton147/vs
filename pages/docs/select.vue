@@ -38,7 +38,7 @@
 				</i18n-t>
 			</template>
 			<template #default>
-				<select-component
+				<Select
 					v-model="selectedFruit"
 					name="select-introduction"
 					:options="fruits"
@@ -47,7 +47,7 @@
 			</template>
 			<template #footer>
 				<utils-code-block-component
-					source="<select-component :options=['banana', 'apple', 'orange', 'grape', 'pear'] />"
+					source="<Select :options=['banana', 'apple', 'orange', 'grape', 'pear'] />"
 				></utils-code-block-component>
 			</template>
 		</utils-card-component>
@@ -62,7 +62,7 @@
 				</i18n-t>
 			</template>
 			<template #default>
-				<select-component
+				<Select
 					v-model="selectedSearchedFruit"
 					name="select-search"
 					search
@@ -71,7 +71,7 @@
 				/>
 			</template>
 			<template #footer>
-				<utils-code-block-component source="<select-component search />"></utils-code-block-component>
+				<utils-code-block-component source="<Select search />"></utils-code-block-component>
 			</template>
 		</utils-card-component>
 	</div>

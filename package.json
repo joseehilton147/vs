@@ -1,6 +1,6 @@
 {
 	"name": "vs",
-	"private": true,
+	"private": false,
 	"dependencies": {
 		"@commitlint/cli": "^17.6.5",
 		"@commitlint/config-conventional": "^17.6.5",
@@ -14,8 +14,8 @@
 		"@nuxtjs/color-mode": "^3.2.0",
 		"@nuxtjs/eslint-config-typescript": "^12.0.0",
 		"@nuxtjs/i18n": "^8.0.0-beta.12",
-		"@unocss/eslint-config": "^0.53.0",
-		"@unocss/nuxt": "^0.53.0",
+		"@unocss/eslint-config": "^0.53.1",
+		"@unocss/nuxt": "^0.53.1",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.42.0",
@@ -23,11 +23,11 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
-		"nuxt": "^3.5.2",
+		"nuxt": "^3.5.3",
 		"nuxt-icon": "^0.4.1",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.3.0",
-		"unocss": "^0.53.0"
+		"unocss": "^0.53.1"
 	},
 	"overrides": {
 		"vue": "latest"

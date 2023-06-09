@@ -12,12 +12,8 @@
 			link: '/',
 		},
 		{
-			title: t('input.title'),
-			link: '/docs/input-component',
-		},
-		{
-			title: 'Select',
-			link: '/docs/select-component',
+			title: 'Button',
+			link: '/docs/button',
 		},
 	])
 
@@ -69,18 +65,18 @@
 		})
 	}
 
-	const {locale} = useI18n()
+	// const {locale} = useI18n()
 
-	const languages = ref([
-		{
-			value: 'en',
-			text: 'English',
-		},
-		{
-			value: 'br',
-			text: 'Português',
-		},
-	])
+	// const languages = ref([
+	// 	{
+	// 		value: 'en',
+	// 		text: 'English',
+	// 	},
+	// 	{
+	// 		value: 'br',
+	// 		text: 'Português',
+	// 	},
+	// ])
 
 	onMounted(() => {
 		if (colorMode.preference === 'dark') {
@@ -92,18 +88,13 @@
 <template>
 	<header class="p-y-4 border-b bg-white dark:border-zinc-900 dark:bg-neutral-900">
 		<div class="m-y-2 container flex items-center justify-between">
-			<div class="rounded-md bg-purple-500 p-2">
+			<div class="bg-secondary-500 rounded-md p-2">
 				<h1 class="animate-pulse text-4xl text-white">VS</h1>
 			</div>
 			<div class="flex items-center justify-center gap-6">
-				<select-component v-model="locale" name="select" :options="languages" />
-				<button-component
-					icon="mdi:github"
-					to="https://github.com/joseehilton147/vs"
-					target="_blank"
-					variant="icon"
-				/>
-				<button-component
+				<!-- <Select v-model="locale" name="select" :options="languages" /> -->
+				<Button icon="mdi:github" to="https://github.com/joseehilton147/vs" target="_blank" variant="icon" />
+				<Button
 					:icon="isDarkMode ? 'material-symbols:dark-mode-outline' : 'material-symbols:light-mode-outline'"
 					variant="icon"
 					@click="toggleDark"
@@ -118,8 +109,8 @@
 					v-for="(item, index) of menuItems"
 					:key="item.title"
 					:to="item.link"
-					:class="`m-b-2 block cursor-pointer rounded-sm p-4 text-lg hover:bg-purple-500 hover:dark:bg-purple-500 ${
-						index === currentItem ? 'bg-purple-600 text-white' : 'bg-white dark:bg-neutral-900'
+					:class="`m-b-2 hover:bg-secondary-500 hover:dark:bg-secondary-500 block cursor-pointer rounded-sm p-4 text-lg ${
+						index === currentItem ? 'bg-secondary-600 text-white' : 'bg-white dark:bg-neutral-900'
 					}`"
 					@click="setCurrentItem(index)"
 				>

@@ -14,7 +14,7 @@ export default {
 		default: {
 			title: 'Como usar',
 			text: 'Você pode usar o {code} para renderizar um input básico.',
-			code: 'input-component',
+			code: 'Input',
 		},
 		sizing: {
 			title: 'Tamanho',
@@ -67,7 +67,7 @@ export default {
 		introduction: {
 			title: 'Como usar',
 			text: 'O componente select é um wrapper para o elemento select nativo, é possível usar o {code} para renderizar um select básico.',
-			code: 'select-component',
+			code: 'Select',
 		},
 		search: {
 			title: 'Pesquisa',
