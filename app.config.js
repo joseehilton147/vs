@@ -71,6 +71,7 @@ const input = {
 
 const button = {
 	base: 'focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out',
+	block: 'w-full flex justify-center items-center',
 	size: {
 		xs: 'text-xs',
 		sm: 'text-sm',

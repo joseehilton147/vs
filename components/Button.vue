@@ -92,15 +92,20 @@
 	const ui = computed(() => defu({}, props.ui, appConfig.ui.button))
 
 	const buttonClass = computed(() => {
-		const {base, variants, radius, size, custom, padding} = ui.value
+		const isBlock = props.block ? ui.value.block : ''
+		const variantValue = ui.value.variants[props.variant]?.replace(/\{color\}/g, props.color) || props.variant
 
-		const isBlock = props.block && 'w-full flex justify-center items-center'
+		const classes = [
+			ui.value.base,
+			isBlock,
+			ui.value.size[props.size],
+			ui.value.padding[props.padding],
+			ui.value.radius[props.radius],
+			variantValue,
+			ui.value.custom,
+		]
 
-		const variantValue = variants[props.variant]?.replace(/\{color\}/g, props.color) || props.variant
-
-		return `${size[props.size]} ${radius[props.radius]} ${
-			padding[props.padding]
-		} ${base} ${isBlock} ${variantValue} ${custom}`
+		return classes.filter(Boolean).join(' ')
 	})
 
 	const buttonProps = computed(() => {
