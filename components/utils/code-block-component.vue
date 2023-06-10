@@ -20,7 +20,6 @@
 	import {useToast} from 'vue-toastification'
 
 	const toast = useToast()
-	const {t} = useI18n()
 
 	const props = defineProps({
 		source: {
@@ -53,6 +52,6 @@
 			document.body.removeChild(textarea)
 		}
 
-		toast.success(t('global.copyCode'))
+		toast.success('Copied to clipboard!')
 	}
 </script>

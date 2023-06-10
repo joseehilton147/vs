@@ -4,11 +4,9 @@
 	const currentItem = ref(0)
 	const isDarkMode = ref(false)
 
-	const {t} = useI18n()
-
 	const menuItems = reactive([
 		{
-			title: t('introduction.title'),
+			title: 'Introduction',
 			link: '/',
 		},
 		{
@@ -65,19 +63,6 @@
 		})
 	}
 
-	// const {locale} = useI18n()
-
-	// const languages = ref([
-	// 	{
-	// 		value: 'en',
-	// 		text: 'English',
-	// 	},
-	// 	{
-	// 		value: 'br',
-	// 		text: 'Português',
-	// 	},
-	// ])
-
 	onMounted(() => {
 		if (colorMode.preference === 'dark') {
 			isDarkMode.value = true
@@ -92,7 +77,6 @@
 				<h1 class="animate-pulse text-4xl text-white">VS</h1>
 			</div>
 			<div class="flex items-center justify-center gap-6">
-				<!-- <Select v-model="locale" name="select" :options="languages" /> -->
 				<Button icon="mdi:github" to="https://github.com/joseehilton147/vs" target="_blank" variant="icon" />
 				<Button
 					:icon="isDarkMode ? 'material-symbols:dark-mode-outline' : 'material-symbols:light-mode-outline'"
