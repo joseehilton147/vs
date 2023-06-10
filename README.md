@@ -38,6 +38,6 @@
     -   [Uno CSS](https://unocss.dev/)
     -   Version 0.53.1
 
--   **Node and Node Package Manager**:
+-   **Node**:
     -   [Node](https://nodejs.org/dist/v18.16.0/)
     -   Version 18.16.0
