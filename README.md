@@ -1,5 +1,31 @@
 # VS - Component library
 
+## Components list:
+
+-   [ ] Alert
+-   [ ] Avatar
+-   [ ] Badge
+-   [x] Button
+-   [ ] Card
+-   [x] Checkbox
+-   [ ] Chip
+-   [x] Input
+-   [ ] Loader
+-   [ ] Menu
+-   [ ] Modal
+-   [ ] Notification
+-   [ ] Pagination
+-   [x] Radio
+-   [ ] Rating
+-   [x] Select
+-   [ ] Sidebar
+-   [ ] Skeleton
+-   [ ] Switch
+-   [ ] Table
+-   [ ] Tabs
+-   [ ] Textarea
+-   [ ] Tooltip
+
 ## Project information:
 
 -   **Framework**:
