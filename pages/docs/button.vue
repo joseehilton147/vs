@@ -32,6 +32,8 @@
 	const isLoading = ref(false)
 
 	const isDisabled = ref(false)
+
+	const isLink = ref(false)
 </script>
 
 <template>
@@ -80,7 +82,7 @@
 			</template>
 		</docs-card>
 		<!-- BLOCK -->
-		<docs-card title="Block">
+		<docs-card title="Block" class="m-y-8">
 			<template #header>
 				<p>You can use the prop <code>block</code> to make the button fill the div width.</p>
 			</template>
@@ -89,7 +91,7 @@
 			</template>
 		</docs-card>
 		<!-- RADIUS -->
-		<docs-card title="Roundness" class="m-y-8">
+		<docs-card title="Roundness">
 			<template #header>
 				<p class="m-b-4">You can use the prop <code>radius</code> to adjust the roundness of the button.</p>
 				<small><code>sm</code> is default roundness.</small>
@@ -99,7 +101,7 @@
 			</template>
 		</docs-card>
 		<!-- SIZE -->
-		<docs-card title="Sizing">
+		<docs-card title="Sizing" class="m-y-8">
 			<template #header>
 				<p class="m-b-4">You can use the prop <code>size</code> to adjust the sizing of the text.</p>
 				<small><code>md</code> is default size.</small>
@@ -150,6 +152,15 @@
 					</div>
 				</div>
 				<docs-code-block :source="`<VSButton ${selectedSyntax} />`"></docs-code-block>
+			</template>
+		</docs-card>
+		<!-- LINK -->
+		<docs-card title="Link">
+			<template #header>
+				<p>Use the prop <code>to</code> for convert the Button into a nuxt-link.</p>
+			</template>
+			<template #footer>
+				<docs-code-block :source="`<VSButton to='https://www.google.com' target='_blank' />`"></docs-code-block>
 			</template>
 		</docs-card>
 		<!-- PLAYGROUND -->
@@ -278,10 +289,15 @@
 					<small>Disabled:</small>
 					<Checkbox v-model="isDisabled" name="button-disabled" />
 				</div>
+				<!-- LINK -->
+				<div>
+					<small>Link:</small>
+					<Checkbox v-model="isLink" name="button-link" />
+				</div>
 			</template>
 			<template #footer>
 				<Button
-					name="button-playground"
+					:name="`${isLink ? 'link' : 'button'}-playground`"
 					:variant="selectedVariant"
 					:color="selectedVariantColor"
 					:icon="icon"
@@ -293,7 +309,9 @@
 					:padding="selectedPadding"
 					:loading="isLoading"
 					:disabled="isDisabled"
-					label="Playground"
+					:to="isLink ? 'https://github.com/joseehilton147/vs' : null"
+					:target="isLink ? '_blank' : null"
+					:label="`${isLink ? 'Link' : 'Button'} playground`"
 				/>
 			</template>
 		</docs-card>
